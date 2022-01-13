@@ -13,39 +13,35 @@ class _HomeState extends State<Home> {
   String _history = '';
   String _expression = '';
 
-  void numClick(String text){
+  void numClick(String text) {
     setState(() {
       _expression += text;
     });
   }
 
-  void allClear(String text){
+  void allClear(String text) {
     setState(() {
-      _history ='';
-      _expression ='';
+      _history = '';
+      _expression = '';
     });
   }
 
-  void clear(String text){
+  void clear(String text) {
     setState(() {
-
-      _expression ='';
+      _expression = '';
     });
   }
 
-  void evaluate(String text){
-    
+  void evaluate(String text) {
     Parser p = Parser();
     Expression exp = p.parse(_expression);
 
     ContextModel cm = ContextModel();
     double eval = exp.evaluate(EvaluationType.REAL, cm);
-    
+
     setState(() {
       _history = _expression;
-      _expression =eval.toString();
-
-
+      _expression = eval.toString();
     });
   }
 
@@ -57,13 +53,13 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.grey[900],
         elevation: 0,
         title: const Text(
-            'Calculator',
-        style: TextStyle(
-          fontFamily: 'Rubik',
-          fontSize: 20.0,
-        ),),
+          'Calculator',
+          style: TextStyle(
+            fontFamily: 'Rubik',
+            fontSize: 20.0,
+          ),
+        ),
         centerTitle: true,
-
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -95,7 +91,7 @@ class _HomeState extends State<Home> {
           const SizedBox(height: 40.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children:  [
+            children: [
               CalcButton(
                 text: 'AC',
                 fillColor: const Color(0xFFFF8F00),
@@ -128,7 +124,7 @@ class _HomeState extends State<Home> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children:  [
+            children: [
               CalcButton(
                 text: '7',
                 fillColor: const Color(0xFF424242),
@@ -161,7 +157,7 @@ class _HomeState extends State<Home> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children:  [
+            children: [
               CalcButton(
                 text: '4',
                 fillColor: const Color(0xFF424242),
@@ -194,7 +190,7 @@ class _HomeState extends State<Home> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children:  [
+            children: [
               CalcButton(
                 text: '1',
                 fillColor: const Color(0xFF424242),
@@ -227,7 +223,7 @@ class _HomeState extends State<Home> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children:  [
+            children: [
               CalcButton(
                 text: '.',
                 fillColor: const Color(0xFFE0E0E0),
